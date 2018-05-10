@@ -1,5 +1,7 @@
 <?php
 
+use yii\grid\DataColumn;
+use yii\grid\SerialColumn;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -36,7 +38,35 @@ $this->params['breadcrumbs'][] = $this->title;
             'has_trastero:boolean',
             'detalles',
 
+            /*
+            [
+                'class' => DataColumn::className(), // this line is optional
+                'attribute' => 'propietario.telefono',
+                'format' => 'text',
+                'label' => 'Contactar',
+            ],
+            */
+
+            [
+                'label' => 'Contactar',
+                'format' => 'raw',
+                'value' => function($model, $key) {
+                    return Html::buttonInput('Estoy Interesado', ['class' => 'btn btn-success', 'onclick' => 'mostrarTelefono()']).Html::hiddenInput('telefono', $model->propietario->telefono);
+                }
+
+            ],
+
             //['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>
+
+<script>
+    // Muestro el valor del hermano con "name = telefono"
+    function mostrarTelefono() {
+        //alert('llego');
+        var tel = $(this).next().val;
+
+        alert(tel);
+    }
+</script>

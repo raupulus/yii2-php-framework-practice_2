@@ -7,6 +7,7 @@ CREATE TABLE propietarios (
     id         BIGSERIAL       PRIMARY KEY
   , nombre     VARCHAR(255)    NOT NULL
   , dni        VARCHAR(255)    NOT NULL UNIQUE
+  , telefono   VARCHAR(255)    NOT NULL
 );
 
 DROP TABLE IF EXISTS inmuebles CASCADE;
@@ -22,12 +23,12 @@ CREATE TABLE inmuebles (
   , detalles         VARCHAR(255)
 );
 
-INSERT INTO propietarios (nombre, dni) VALUES
-    ('Juan Manuel', '401232119-D')
-  , ('Rosa', '401232120-E')
-  , ('Rosario', '401232121-F')
-  , ('Josefa', '401232122-G')
-  , ('Manolo', '401232123-H')
+INSERT INTO propietarios (nombre, dni, telefono) VALUES
+    ('Juan Manuel', '401232119-D', '612123123')
+  , ('Rosa', '401232120-E', '612123124')
+  , ('Rosario', '401232121-F', '612123125')
+  , ('Josefa', '401232122-G', '612123126')
+  , ('Manolo', '401232123-H', '612123127')
 ;
 
 INSERT INTO inmuebles (propietario_id, n_habitaciones, n_wc, precio,

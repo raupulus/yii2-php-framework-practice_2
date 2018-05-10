@@ -63,12 +63,18 @@ class InmueblesSearch extends Inmuebles
         $query->andFilterWhere([
             'id' => $this->id,
             'propietario_id' => $this->propietario_id,
-            'n_habitaciones' => $this->n_habitaciones,
-            'n_wc' => $this->n_wc,
             'precio' => $this->precio,
             'has_lavavajillas' => $this->has_lavavajillas,
             'has_garage' => $this->has_garage,
             'has_trastero' => $this->has_trastero,
+        ]);
+
+        $query->andFilterWhere([
+            '>=', 'n_habitaciones', $this->n_habitaciones,
+        ]);
+
+        $query->andFilterWhere([
+            '>=', 'n_wc', $this->n_wc
         ]);
 
         $query->andFilterWhere(['ilike', 'detalles', $this->detalles]);
