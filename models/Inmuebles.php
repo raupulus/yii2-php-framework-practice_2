@@ -21,6 +21,11 @@ use Yii;
  */
 class Inmuebles extends \yii\db\ActiveRecord
 {
+    public $min_precio;
+    public $max_precio;
+
+
+
     /**
      * {@inheritdoc}
      */
@@ -42,6 +47,7 @@ class Inmuebles extends \yii\db\ActiveRecord
             [['has_lavavajillas', 'has_garage', 'has_trastero'], 'boolean'],
             [['detalles'], 'string', 'max' => 255],
             [['propietario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Propietarios::className(), 'targetAttribute' => ['propietario_id' => 'id']],
+            [['min_precio', 'max_precio'], 'integer'],
         ];
     }
 

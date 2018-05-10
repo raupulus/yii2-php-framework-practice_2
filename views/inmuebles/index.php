@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="inmuebles-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?php /* Html::a('Crear Inmueble', ['create'], ['class' => 'btn
@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             //['class' => 'yii\grid\SerialColumn'],
 
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'propietario.dni',
             'n_habitaciones',
             'n_wc',
-            'precio',
+            'precio:currency',
             'has_lavavajillas:boolean',
             'has_garage:boolean',
             'has_trastero:boolean',

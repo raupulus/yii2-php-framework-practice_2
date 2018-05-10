@@ -15,27 +15,29 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?php // $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'propietario_id') ?>
+    <?php // $form->field($model, 'propietario_id') ?>
 
     <?= $form->field($model, 'n_habitaciones') ?>
 
     <?= $form->field($model, 'n_wc') ?>
 
-    <?= $form->field($model, 'precio') ?>
+    Mínimo<?= $form->field($model, 'min_precio') ?>
 
-    <?php // echo $form->field($model, 'has_lavavajillas')->checkbox() ?>
+    Máximo<?= $form->field($model, 'max_precio') ?>
 
-    <?php // echo $form->field($model, 'has_garage')->checkbox() ?>
+    <?= $form->field($model, 'has_lavavajillas')->checkbox() ?>
 
-    <?php // echo $form->field($model, 'has_trastero')->checkbox() ?>
+    <?= $form->field($model, 'has_garage')->checkbox() ?>
+
+    <?= $form->field($model, 'has_trastero')->checkbox() ?>
 
     <?php // echo $form->field($model, 'detalles') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::resetButton('Reset', ['class' => 'btn btn-danger']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
