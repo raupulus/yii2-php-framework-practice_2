@@ -1,5 +1,6 @@
 <?php
 
+use yii\base\View;
 use yii\grid\DataColumn;
 use yii\grid\SerialColumn;
 use yii\helpers\Html;
@@ -51,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Contactar',
                 'format' => 'raw',
                 'value' => function($model, $key) {
-                    return Html::buttonInput('Estoy Interesado', ['class' => 'btn btn-success', 'onclick' => 'mostrarTelefono()']).Html::hiddenInput('telefono', $model->propietario->telefono);
+                    return Html::buttonInput('Estoy Interesado', ['class' => 'btn btn-success btnTelefono']).Html::hiddenInput('telefono', $model->propietario->telefono);
                 }
 
             ],
@@ -59,14 +60,32 @@ $this->params['breadcrumbs'][] = $this->title;
             //['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+    
+    
+    
+    <?php
+
+
+    $this->registerJs(
+        "$('#btnTelefono').on('click', function() { alert('Pulsado'); });",
+        $this::POS_READY,
+        'my-button-handler'
+    );
+
+
+
+    ?>
+    
 </div>
 
 <script>
     // Muestro el valor del hermano con "name = telefono"
+    /*
     function mostrarTelefono() {
         //alert('llego');
         var tel = $(this).next().val;
 
         alert(tel);
     }
+    */
 </script>

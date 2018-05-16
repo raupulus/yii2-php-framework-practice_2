@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use function array_merge;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -25,8 +26,19 @@ class InmueblesSearch extends Inmuebles
             [['id', 'propietario_id', 'n_habitaciones', 'n_wc'], 'integer'],
             [['precio'], 'number'],
             [['has_lavavajillas', 'has_garage', 'has_trastero'], 'boolean'],
-            [['detalles'], 'safe'],
+            [['detalles', 'min_precio', 'max_precio'], 'safe'],
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return array_merge(parent::attributeLabels(), [
+            'min_precio' => 'Precio Mínimo',
+            'max_precio' => 'Precio Máximo',
+        ]);
     }
 
     /**
@@ -80,13 +92,6 @@ class InmueblesSearch extends Inmuebles
         $query->andFilterWhere([
             '>=', 'n_wc', $this->n_wc
         ]);
-
-
-
-        // OBTENER PRECIOS
-        //$min_precio = 0;
-        //$max_precio = 99999999;
-
 
         // Precio mínimo
         $query->andFilterWhere([

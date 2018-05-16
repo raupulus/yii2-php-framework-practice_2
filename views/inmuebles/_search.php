@@ -6,6 +6,9 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model app\models\InmueblesSearch */
 /* @var $form yii\widgets\ActiveForm */
+
+
+$tiene = ['' => 'No Seleccionado', true => 'Si', false => 'No'];
 ?>
 
 <div class="inmuebles-search">
@@ -27,11 +30,11 @@ use yii\widgets\ActiveForm;
 
     Máximo<?= $form->field($model, 'max_precio') ?>
 
-    <?= $form->field($model, 'has_lavavajillas')->checkbox() ?>
+    <?= $form->field($model, 'has_lavavajillas')->dropDownList($tiene) ?>
 
-    <?= $form->field($model, 'has_garage')->checkbox() ?>
+    <?= $form->field($model, 'has_garage')->dropDownList($tiene) ?>
 
-    <?= $form->field($model, 'has_trastero')->checkbox() ?>
+    <?= $form->field($model, 'has_trastero')->dropDownList($tiene) ?>
 
     <?php // echo $form->field($model, 'detalles') ?>
 
