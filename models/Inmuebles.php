@@ -56,11 +56,11 @@ class Inmuebles extends \yii\db\ActiveRecord
             'id' => 'ID',
             'propietario_id' => 'Propietario ID',
             'n_habitaciones' => 'N Habitaciones',
-            'n_wc' => 'N Wc',
+            'n_wc' => 'Nº Baños',
             'precio' => 'Precio',
-            'has_lavavajillas' => 'Has Lavavajillas',
-            'has_garage' => 'Has Garage',
-            'has_trastero' => 'Has Trastero',
+            'has_lavavajillas' => 'Tiene Lavavajillas',
+            'has_garage' => 'Tiene Garage',
+            'has_trastero' => 'Tiene Trastero',
             'detalles' => 'Detalles',
         ];
     }
