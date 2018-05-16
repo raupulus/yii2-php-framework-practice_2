@@ -12,6 +12,10 @@ use app\models\Inmuebles;
  */
 class InmueblesSearch extends Inmuebles
 {
+    public $min_precio;
+    public $max_precio;
+
+
     /**
      * {@inheritdoc}
      */
@@ -86,12 +90,12 @@ class InmueblesSearch extends Inmuebles
 
         // Precio mínimo
         $query->andFilterWhere([
-            '>=', 'precio', this->min_precio
+            '>=', 'precio', $this->min_precio
         ]);
 
         // Precio máximo
         $query->andFilterWhere([
-            '<=', 'precio', this->max_precio
+            '<=', 'precio', $this->max_precio
         ]);
 
         //$query->andFilterWhere(['ilike', 'detalles', $this->detalles]);

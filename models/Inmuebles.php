@@ -21,10 +21,6 @@ use Yii;
  */
 class Inmuebles extends \yii\db\ActiveRecord
 {
-    public $min_precio;
-    public $max_precio;
-
-
 
     /**
      * {@inheritdoc}
