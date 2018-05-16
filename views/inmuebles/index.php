@@ -12,7 +12,27 @@ use yii\grid\GridView;
 
 $this->title = 'Inmuebles';
 $this->params['breadcrumbs'][] = $this->title;
-?>
+
+$xyz = <<<EOT
+    $('.btnTelefono').on('click', function() { 
+        var tel = $(this).data('tlf');
+        $(this).val(tel);
+    });    
+EOT;
+
+$this->registerJs($xyz);
+
+/*
+    $this->registerJs(
+        "$('#btnTelefono').on('click', function() { alert('Pulsado'); });",
+        $this::POS_READY,
+        'my-button-handler'
+    );
+*/
+
+
+    ?>
+
 <div class="inmuebles-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -52,7 +72,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Contactar',
                 'format' => 'raw',
                 'value' => function($model, $key) {
-                    return Html::buttonInput('Estoy Interesado', ['class' => 'btn btn-success btnTelefono']).Html::hiddenInput('telefono', $model->propietario->telefono);
+                    return Html::buttonInput('Estoy Interesado', ['class' => 'btn btn-success btnTelefono', 'data-tlf' => $model->propietario->telefono]).Html::hiddenInput('telefono', $model->propietario->telefono);
                 }
 
             ],
@@ -60,32 +80,4 @@ $this->params['breadcrumbs'][] = $this->title;
             //['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-    
-    
-    
-    <?php
-
-
-    $this->registerJs(
-        "$('#btnTelefono').on('click', function() { alert('Pulsado'); });",
-        $this::POS_READY,
-        'my-button-handler'
-    );
-
-
-
-    ?>
-    
 </div>
-
-<script>
-    // Muestro el valor del hermano con "name = telefono"
-    /*
-    function mostrarTelefono() {
-        //alert('llego');
-        var tel = $(this).next().val;
-
-        alert(tel);
-    }
-    */
-</script>
