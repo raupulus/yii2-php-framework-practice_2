@@ -13,25 +13,15 @@ use yii\grid\GridView;
 $this->title = 'Inmuebles';
 $this->params['breadcrumbs'][] = $this->title;
 
-$xyz = <<<EOT
+$mostrarBoton = <<<EOT
     $('.btnTelefono').on('click', function() { 
         var tel = $(this).data('tlf');
         $(this).val(tel);
     });    
 EOT;
 
-$this->registerJs($xyz);
-
-/*
-    $this->registerJs(
-        "$('#btnTelefono').on('click', function() { alert('Pulsado'); });",
-        $this::POS_READY,
-        'my-button-handler'
-    );
-*/
-
-
-    ?>
+$this->registerJs($mostrarBoton);
+?>
 
 <div class="inmuebles-index">
 
